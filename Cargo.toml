@@ -1,0 +1,29 @@
+[package]
+name = "secure-backend"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aes = "0.8.4" # AES encryption algorithms for file encryption
+argon2 = "0.5.3" # Secure password hashing (Argon2)
+async-trait = "0.1.89" # Enables async traits for async/await in Rust
+axum = {version = "0.8.6", features = ["multipart"]} # Web framework (HTTP server) with multipart file upload support
+axum-extra = {version = "0.10.3", features = ["cookie"]} # Axum utilities, including cookie management for sessions
+base64 = "0.22.1" # Base64 encoding/decoding for file and token handling
+block-modes = "0.9.1" # Block cipher modes (e.g., CBC) for encryption
+chrono = {version = "0.4.42", features = ["serde"]} # Date/time handling with serde serialization
+dotenv = "0.15.0" # Loads environment variables from .env files
+jsonwebtoken = {version = "10.0.0", features = ["rust_crypto"]} # JWT (JSON Web Token) creation and validation (with rust_crypto backend)
+rand = "0.9.2" # Random number generation for tokens, salts, etc.
+rsa = "0.9.8" # RSA encryption algorithms for secure key exchange
+serde = { version = "1.0.228", features = ["derive"] } # Serialization/deserialization with derive macros for structs
+serde_json = { version = "1.0.145" } # JSON serialization/deserialization for API payloads
+sqlx = {version = "0.8.6", features = ["runtime-async-std-native-tls","postgres", "chrono", "uuid"]} # Async SQL database access (Postgres, TLS, chrono, uuid)
+time = "0.3.44" # Time handling utilities for scheduling and timestamps
+tokio = {version = "1.47.1", features = ["full"]} # Async runtime (Tokio) with all features enabled
+tokio-cron-scheduler = "0.15.0" # Cron job scheduling for background tasks
+tower = "0.5.2" # Middleware and utilities for web servers
+tower-http = {version = "0.6.6", features = ["cors", "trace"]} # HTTP middleware for Tower (CORS support, request tracing)
+tracing-subscriber = "0.3.20" # Structured logging and tracing for observability
+uuid = { version = "1.18.1", features = ["serde", "v4"] } # UUID generation/parsing (v4, serde integration)
+validator = {version = "0.20.0", features = ["derive"]} # Data validation for structs with derive macros
